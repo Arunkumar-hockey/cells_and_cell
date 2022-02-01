@@ -168,7 +168,8 @@ class APIService {
       if (response.statusCode == 200) {
         var walletAmount = WalletAmount.fromJson(json.decode(response.body));
         return walletAmount;
-      } else {
+      }
+      else {
         return null;
       }
     } catch(error){
