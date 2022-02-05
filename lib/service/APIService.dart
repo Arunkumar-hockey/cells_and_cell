@@ -116,7 +116,7 @@ class APIService {
     try {
       final response = await http.post(url,
           headers: {'Authorization': 'Bearer $token'},
-          body: {"password": qrCode});
+          body: {"qr": qrCode});
       print("====Map====${response.body.toString()}");
 
       if (response.statusCode == 200) {
@@ -197,4 +197,7 @@ class APIService {
       throw e.toString();
     }
   }
+
+
+
 }

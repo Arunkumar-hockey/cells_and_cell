@@ -36,7 +36,7 @@ class TransferHistory extends GetView<TransactionsController> {
                 children: <Widget>[
                   ListTile(
                     title: Text(
-                        '${controller.TransactionsInfo[0].userDetails[0].transactions[0].amount}'),
+                        controller.TransactionsInfo[0].userDetails[0].transactions[0].amount),
                   ),
                   const Divider(),
                 ],

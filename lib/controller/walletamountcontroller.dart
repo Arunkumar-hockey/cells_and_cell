@@ -7,18 +7,21 @@ class WalletController extends GetxController {
   var isLoading = true.obs;
 
   @override
-  void onInit() async{
+  void onInit() async {
     FetchProfileInfo();
     super.onInit();
   }
 
-  void FetchProfileInfo() async{
-    var walletInfo = await APIService().fetchWalletAmount();
-    if(walletInfo != null) {
-      WalletInfo.assign(walletInfo);
-    }
-    else{
-      return null;
+  void FetchProfileInfo() async {
+    try {
+      isLoading(true);
+
+      var walletInfo = await APIService().fetchWalletAmount();
+      if (walletInfo != null) {
+        WalletInfo.assign(walletInfo);
+      }
+    } finally {
+      isLoading(false);
     }
   }
 

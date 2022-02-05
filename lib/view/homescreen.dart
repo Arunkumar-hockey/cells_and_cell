@@ -1,4 +1,5 @@
 import 'package:cells_and_cell/allpackages.dart';
+import 'package:cells_and_cell/service/APIService.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -29,21 +30,29 @@ class _HomeScreenState extends State<HomeScreen> {
         ),
         centerTitle: true,
         leading: IconButton(
-            color: Colors.white,
+            //color: Colors.white,
             onPressed: () {
-              Navigator.push(
-                  context, MaterialPageRoute(builder: (context) => Profile()));
+              Get.to(Profile());
             },
             icon: const Icon(
               Icons.account_circle_outlined,
-              color: Colors.white,
+              //color: Colors.white,
               size: 60,
             )),
         actions: [
+          TextButton(
+            onPressed: () {
+              box.remove("token");
+              APIService().SignOut();
+              Get.offAll(LoginScreen());
+            },
+          child: Text("Log Out", style: TextStyle(fontSize: 20, color: Colors.white),),
+          ),
           IconButton(
             onPressed: () {
-              Navigator.push(
-                  context, MaterialPageRoute(builder: (context) => Wallet()));
+              Get.to(Wallet());
+              // Navigator.push(
+              //     context, MaterialPageRoute(builder: (context) => Wallet()));
             },
             icon: const Icon(Icons.account_balance_wallet),
             iconSize: 30,
@@ -78,10 +87,7 @@ class _HomeScreenState extends State<HomeScreen> {
                           ),
                           child: IconButton(
                             onPressed: () {
-                              Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                      builder: (context) => const ScanQr()));
+                              Get.to(ScanQr());
                             },
                             icon: const Icon(Icons.qr_code_scanner_rounded),
                             iconSize: 70,
@@ -136,11 +142,7 @@ class _HomeScreenState extends State<HomeScreen> {
                           ),
                           child: IconButton(
                             onPressed: () {
-                              Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                      builder: (context) =>
-                                          const MobileNumber()));
+                              Get.to(MobileNumber());
                             },
                             icon: const Icon(Icons.account_circle_rounded),
                             iconSize: 70,
@@ -165,10 +167,7 @@ class _HomeScreenState extends State<HomeScreen> {
                           ),
                           child: IconButton(
                             onPressed: () {
-                              Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                      builder: (context) => TransferHistory()));
+                              Get.to(TransferHistory());
                             },
                             icon: const Icon(Icons.account_balance_rounded),
                             iconSize: 70,

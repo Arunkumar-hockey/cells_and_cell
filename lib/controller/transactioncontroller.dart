@@ -8,11 +8,11 @@ class TransactionsController extends GetxController {
 
   @override
   void onInit() async {
-    FetchProfileInfo();
+    FetchTransactionInfo();
     super.onInit();
   }
 
-  void FetchProfileInfo() async {
+  void FetchTransactionInfo() async {
     try {
       isLoading(true);
       var transactionsInfo = await APIService().fetchTransactions();

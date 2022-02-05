@@ -3,13 +3,15 @@ import 'package:responsive_framework/responsive_framework.dart';
 
 void main() async{
   await GetStorage.init();
-  runApp(const MyApp());
+  runApp( MyApp());
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({Key? key}) : super(key: key);
+   MyApp({Key? key}) : super(key: key);
+  final box = GetStorage();
   @override
   Widget build(BuildContext context) {
+    String? token = box.read("token");
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
       builder: (context, widget) => ResponsiveWrapper.builder(
@@ -28,7 +30,7 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
       ),
       //home: GettingStartedScreen(),
-      home: LoginScreen(),
+      home: token == null ? LoginScreen() : const HomeScreen(),
     );
   }
 }
