@@ -115,8 +115,7 @@ class APIService {
 
     try {
       final response = await http.post(url,
-          headers: {'Authorization': 'Bearer $token'},
-          body: {"qr": qrCode});
+          headers: {'Authorization': 'Bearer $token'}, body: {"qr": qrCode});
       print("====Map====${response.body.toString()}");
 
       if (response.statusCode == 200) {
@@ -134,7 +133,7 @@ class APIService {
     var url = Uri.parse(completeUrl);
 
     try {
-      final response = await http.post(
+      final response = await http.get(
         url,
         headers: {'Authorization': 'Bearer $token'},
       );
@@ -159,7 +158,7 @@ class APIService {
     var url = Uri.parse(completeUrl);
 
     try {
-      final response = await http.post(
+      final response = await http.get(
         url,
         headers: {'Authorization': 'Bearer $token'},
       );
@@ -197,7 +196,4 @@ class APIService {
       throw e.toString();
     }
   }
-
-
-
 }

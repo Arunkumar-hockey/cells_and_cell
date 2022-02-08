@@ -1,5 +1,5 @@
 class APIConstants {
-  static const BaseUrl = "http://mobi.webstormers.in";
+  static const BaseUrl = "http://mobi.webstormers.com";
 
   static const KLogin = "/api/V1/signin";
   static const KQRGenerate = "/api/V1/qrcode/generate";

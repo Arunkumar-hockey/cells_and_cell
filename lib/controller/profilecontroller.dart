@@ -13,13 +13,19 @@ class ProfileController extends GetxController {
   }
 
   void FetchProfileInfo() async{
-    var profileInfo = await APIService().FetchProfile();
-    if(profileInfo != null) {
-      ProfileInfo.assign(profileInfo);
+    try {
+      isLoading(true);
+      var profileInfo = await APIService().FetchProfile();
+      if(profileInfo != null) {
+        ProfileInfo.assign(profileInfo);
+      }
+      else{
+        return null;
+      }
+    } finally {
+      isLoading(false);
     }
-    else{
-      return null;
-    }
+
   }
 
 }

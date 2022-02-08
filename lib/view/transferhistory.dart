@@ -21,6 +21,8 @@ class TransferHistory extends GetView<TransactionsController> {
       body: Obx(() {
         if(controller.isLoading.value) {
           return const Center(child: CircularProgressIndicator(color: Colors.black,));
+        } else if(controller.TransactionsInfo.isEmpty) {
+          return const Center(child: Text("No records found"));
         }
         return Container(
           margin: const EdgeInsets.only(top: 20, left: 10, right: 10),
