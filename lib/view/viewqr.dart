@@ -9,12 +9,11 @@ class ViewQRCode extends GetView<QRGenerateController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        backgroundColor: const Color(0xffE9D6F4),
         appBar: buildAppBar(),
         body: buildBody());
   }
 
-  AppBar buildAppBar() {
+   buildAppBar() {
     return AppBar(
         title: const Text(
           'Read QR',
@@ -27,11 +26,11 @@ class ViewQRCode extends GetView<QRGenerateController> {
 
    buildBody() {
     return Center(
-        child: buildqrImage(),
+        child: buildQRImage(),
       );
   }
 
-    buildqrImage() {
+    buildQRImage() {
      return SizedBox(
         width: 400,
         height: 400,

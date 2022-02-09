@@ -33,32 +33,48 @@ class _ScanQrState extends State<ScanQr> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        body: Stack(
-          alignment: Alignment.center,
-          children: [
-            qrscan(context),
-            Positioned(
-                bottom: 20,
-                child: Text(
-                  barcode != null ? 'Result : ${barcode?.code}' : 'Scan a code',
-                  style: const TextStyle(fontSize: 25, color: Colors.white),
-                  maxLines: 3,
-                ))
-          ],
-        ),
+        appBar: buildAppBar(),
+        body: buildBody(),
       ),
     );
   }
 
-  qrscan(BuildContext context) => QRView(
-        key: qrKey,
-        onQRViewCreated: onQRViewCreated,
-        overlay: QrScannerOverlayShape(
-            borderWidth: 10,
-            borderRadius: 10,
-            borderColor: const Color(0xff9c2d93),
-            cutOutSize: MediaQuery.of(context).size.width * 0.8),
-      );
+  buildBody() {
+    return Stack(
+      alignment: Alignment.center,
+      children: [
+        buildQRScan(),
+        Positioned(
+            bottom: 20,
+            child: Text(
+              barcode != null ? 'Result : ${barcode?.code}' : 'Scan a code',
+              style: const TextStyle(fontSize: 25, color: Colors.white),
+              maxLines: 3,
+            ))
+      ],
+    );
+  }
+
+   buildAppBar() {
+    return AppBar(
+      title: Text("Scan"),
+      centerTitle: true,
+      backgroundColor: const Color(0xff9c2d93),
+    );
+  }
+
+  buildQRScan() {
+    return QRView(
+      key: qrKey,
+      onQRViewCreated: onQRViewCreated,
+      overlay: QrScannerOverlayShape(
+          borderWidth: 10,
+          borderRadius: 10,
+          borderColor: const Color(0xff9c2d93),
+          cutOutSize: MediaQuery.of(context).size.width * 0.8),
+    );
+  }
+
   void onQRViewCreated(QRViewController controller) {
     setState(() {
       this.controller = controller;

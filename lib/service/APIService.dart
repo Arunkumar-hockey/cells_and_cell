@@ -9,8 +9,8 @@ import 'package:cells_and_cell/model/walletamount.dart';
 import 'package:http/http.dart' as http;
 
 class APIService {
-  final box = GetStorage();
 
+  final box = GetStorage();
   Future getUserLogin(String email, String password) async {
     String completeUrl = APIConstants.BaseUrl + APIConstants.KLogin;
     var uri = Uri.parse(completeUrl);
@@ -120,7 +120,7 @@ class APIService {
 
       if (response.statusCode == 200) {
       } else {
-        return null;
+        return;
       }
     } catch (e) {
       throw e.toString();
@@ -196,4 +196,5 @@ class APIService {
       throw e.toString();
     }
   }
+
 }
