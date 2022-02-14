@@ -25,4 +25,5 @@ class ProfileController extends GetxController {
       isLoading(false);
     }
   }
+
 }

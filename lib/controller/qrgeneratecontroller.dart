@@ -15,7 +15,7 @@ class QRGenerateController extends GetxController {
     super.onInit();
   }
 
-  void fetchQRInfo() async{
+  void fetchQRInfo() async {
     try {
       isLoading(true);
       var qrInfo = await APIService().FetchQRCode();
@@ -26,6 +26,4 @@ class QRGenerateController extends GetxController {
       isLoading(false);
     }
   }
-
-
 }

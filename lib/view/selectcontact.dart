@@ -1,5 +1,4 @@
 import 'dart:ui';
-
 import 'package:cells_and_cell/allpackages.dart';
 
 class SelectContact extends StatefulWidget {
@@ -19,7 +18,7 @@ class _SelectContactState extends State<SelectContact> {
     );
   }
 
-  Column buildBody() {
+   buildBody() {
     return Column(
       children: [
         buildSearch(),
@@ -49,7 +48,7 @@ class _SelectContactState extends State<SelectContact> {
     );
   }
 
-  Container buildSearch() {
+   buildSearch() {
     return Container(
         margin: const EdgeInsets.only(top: 20, left: 10, right: 10),
         child: TextField(
@@ -77,7 +76,7 @@ class _SelectContactState extends State<SelectContact> {
       );
   }
 
-  AppBar buildAppBar() {
+   buildAppBar() {
     return AppBar(
         backgroundColor: const Color(0xff9c2d93),
         title: const Text(
