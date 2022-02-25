@@ -14,7 +14,7 @@ class Wallet extends GetView<WalletController> {
         body: buildBody());
   }
 
-  Obx buildBody() {
+   buildBody() {
     return Obx(() {
         if (controller.isLoading.value) {
           return const Center(child: CircularProgressIndicator());
@@ -64,7 +64,7 @@ class Wallet extends GetView<WalletController> {
           );
   }
 
-  AppBar buildAppBar() {
+   buildAppBar() {
     return AppBar(
         title: const Text(
           'Wallet',

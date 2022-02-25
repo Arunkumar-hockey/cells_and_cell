@@ -17,7 +17,7 @@ class WalletController extends GetxController {
       isLoading(true);
 
       var walletInfo = await APIService().fetchWalletAmount();
-      if (walletInfo != null) {
+      if (walletInfo != null && WalletInfo.isEmpty) {
         WalletInfo.assign(walletInfo);
       }
     } finally {

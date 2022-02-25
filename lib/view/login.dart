@@ -95,15 +95,16 @@ class LoginScreen extends StatelessWidget {
                           ElevatedButton(
                               style: ElevatedButton.styleFrom(
                                   primary: const Color(0xff9c2d93)),
-                              onPressed: () async{
-                                var data = await APIService().getUserLogin(username.text, password.text);
-                                if(data["status"] == 1) {
+                              onPressed: () async {
+                                var data = await APIService()
+                                    .getUserLogin(username.text, password.text);
+                                if (data["status"] == 1) {
                                   box.write("token", data["token"]);
                                   // print("true...");
                                   // print(data["token"]);
-                                  Get.to(HomeScreen());
+                                  Get.to(const HomeScreen());
                                 } else {
-                                 // print("false...");
+                                  // print("false...");
                                 }
                               },
                               child: Container(
